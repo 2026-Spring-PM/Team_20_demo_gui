@@ -72,9 +72,10 @@ http://localhost:6080/vnc.html
 - Equip a **weapon** (physical damage) AND a **magic stone** (magic damage); **Q** swaps weapons
 - Fight goblins, archers, and tanks; explore the dungeon for tougher foes
 - Periodic monster **waves** attack the south gate — you can't leave the village mid-wave
+- Fight Monsters in the Dungeon to earn Resources to improve your combat ability.
 
 ### (8) 🌾 Travel & Time System
-- Henry / Cedric ready a horse to travel between the Village and the City (each trip burns game hours; higher-tier stables are faster)
+- Henry / Cedric ready a horse to travel between the Village, the City and the Dungeons (each trip burns game hours; higher-tier stables are faster)
 - One in-game hour passes every real minute; sleeping advances time; full day/night cycle
 
 ### (9) 🌾 Season & Weather
