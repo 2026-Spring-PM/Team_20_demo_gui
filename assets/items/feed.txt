@@ -1,0 +1,19 @@
+# feed.txt -- item definitions (feed). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[QuickFeed]
+name  = Quick Feed
+type  = feed
+color = 180,140,80
+price = 12
+feed = true
+
+[RichFeed]
+name  = Rich Feed
+type  = feed
+color = 190,170,100
+price = 18
+feed = true

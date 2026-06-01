@@ -1,0 +1,136 @@
+# =============================================================================
+# village.txt -- placements for every building in the home village.
+#
+# 5/24 redesign: village map is now 80x60 (wider than tall). Buildings
+# cluster in the WEST column (col 1-18) and EAST column (col 61-78); the
+# central band col 19-60 row 1-29 is plaza / grass / paths and below
+# (row 30-58) is the 40-plot farm (8 wide x 5 rows of plots, 5x5 each,
+# with a 1-tile path between each plot row at rows 35/41/47/53).
+#
+# Format (one building per non-blank, non-`#` line):
+#   <kind>  pos=<tx,ty>  size=<w,h>  door=<tx,ty>  [npc=<id>]  [interior=<id>]
+#
+# All x/y/w/h are in TILE units. `npc=<id>` attaches an NPC to the
+# building -- the id matches a section header in
+# assets/npcs/definitions.txt. When a building has no `interior=`
+# field, the NPC spawns at the door tile (one tile outside the
+# building, in the door direction). When `interior=<id>` is set,
+# the NPC lives INSIDE the matching interior map at
+# assets/maps/interiors/<id>.txt; the door tile then becomes an
+# enter-trigger (player presses E next to it to step inside).
+# =============================================================================
+
+# ===== West column buildings (col 1-18) =====
+# 5/25 second pass + 5/26 imp #4:
+#   - Dairy MOVED OUT of the west column entirely. It now lives in the
+#     production strip along the farm's north edge (row 22) next to
+#     Mill/Bakery/Winery -- see the production-strip block below. The
+#     5/25 "across from the pen / mirrored halves of a farmstead" idea
+#     is dropped in favour of clustering ALL four production buildings
+#     so a player crossing the production row sees crops-in,
+#     refined-goods-out in one continuous strip.
+#   - Smithy stays in the mid-band crafting row.
+#   - Shop building removed entirely (Bran moved to the central
+#     city earlier; the vestigial empty storefront wasn't earning
+#     its footprint).
+smithy    pos=10,13  size=5,5    door=12,18   npc=otto
+townhall  pos=10,21  size=7,5    door=13,26   npc=tristan  interior=townhall
+
+# 5/25 note: the winery moved out of the upper west column entirely
+# (see the new mid-band row below). The old "winery in west column"
+# was a placeholder before the production-trio realignment.
+
+# ===== 5/25 production trio + 5/26 imp #4 dairy: along the farm's north edge =====
+# Mill, Bakery, Winery, Dairy share row 22 just north of the
+# east-west road that separates the village from the farm. Layout
+# (5/26 v2: uniform 1-tile gaps, all four buildings packed tight):
+#
+#   cols 21-25 (Mill) | col 26 gap | cols 27-31 (Bakery) | col 32
+#   gap | cols 33-37 (Winery) | col 38 gap | cols 39-43 (Dairy)
+#
+# Total span: cols 21-43. v1 left a 6-tile gap before the Dairy
+# (cols 38-43) to clear the player spawn at (40, 22); v2 moved
+# the spawn up to (40, 14) instead, so the four buildings can
+# finally read as ONE continuous production line. Visually
+# satisfies the "production buildings in a row" brief in a way
+# v1's offset dairy did not (see 5/26 feedback screenshots).
+#
+# Mill's west edge is at col 21, one tile east of the widened west
+# N-S road at cols 18-19 (col 20 is the gap). All four buildings
+# occupy rows 22-26; row 27 is the door / NPC gap; rows 28-29 are
+# the east-west main road. The strip fronts the farm so a player
+# walking down from the new (40, 14) spawn meets the four
+# producers head-on before reaching the field.
+#
+# Doors all face SOUTH onto row 27 (matching Agnes at (63,27) and
+# Reeve at (73,27) further east on the same line) so the NPCs
+# read as a single service strip along the road's north edge.
+mill      pos=21,22  size=5,5    door=23,27   npc=greta
+bakery    pos=27,22  size=5,5    door=29,27   npc=ros
+winery    pos=33,22  size=5,5    door=35,27   npc=aldous
+dairy     pos=39,22  size=5,5    door=41,27   npc=eda
+
+# ===== East column buildings (col 61-78) =====
+# 5/25 third pass: Pen moved out of this column to the upper-left
+# area. The east column now holds the stable (mid), and the farm /
+# storehouse band below the mid-road. With the pen gone, the upper
+# east is open plaza -- room for a future east-side mill or shrine
+# without crowding.
+
+# Knight's House: 5/25 new building in the SW quadrant of the
+# intersection between the east N-S road (cols 67-68) and the north
+# E-W road (rows 11-12). 9x7 footprint at cols 57-65 rows 13-19 --
+# north edge (row 13) sits directly against the north E-W road (no
+# gap, intentional). One-tile gap from the east road (col 66 is gap)
+# matches the spacing convention used by storehouse / stable /
+# townhall. The building straddles the boundary between the central
+# plaza (cols 19-60) and the east column (col 61+): cols 57-60 are a
+# small intrusion into the plaza, cols 61-65 sit above the farm
+# (rows 22-26, gap rows 20-21 in between). Door faces EAST at the
+# vertical centerline (row 16, the middle of rows 13-19) onto col
+# 66, the gap between the building's east wall and the east N-S
+# road -- player walking up the east road meets the entrance at
+# eye-level. Lyra (Maid) lives inside; her village placement entry
+# was removed in favour of the interior file at
+# assets/npcs/interiors/knight_house_placements.txt.
+knight_house pos=57,13  size=9,7  door=66,16  npc=lyra  interior=knight_house
+
+# Pen: 5/25 relocated to the upper-left at (21, 2). Footprint still
+# 14x7 (locked across all upgrade levels). New layout puts the pen
+# one tile east of the widened west N-S road (cols 18-19; col 20 is
+# the gap) and one tile south of the top wall (row 0 = wall, row 1 =
+# gap, rows 2-8 = pen). 5/26 imp #4 note: the dairy used to sit
+# "across the road" at cols 12-16 rows 4-8 (mirrored-farmstead
+# motif). With the dairy moved into the production strip on row 22,
+# the upper-west corner is now an unpaired pen -- the visual mirror
+# is gone but the pen's own placement is unchanged. Door at (27, 9)
+# puts Nellie the Herder on grass one tile south of the pen, facing
+# into the plaza. Was previously at (62, 3) in the upper-east column.
+pen       pos=21,2   size=14,7   door=27,9    npc=nellie
+
+# Stable: door faces NORTH onto row 12, directly on the north E-W
+# road. 5/25 second pass: rotated the building's facing -- door
+# moved from the south face at (73, 17) to the north face at
+# (73, 12) -- so the entrance reads from the road intersection
+# instead of from the grass strip behind the farm. The building
+# itself shifted south one tile to compensate (rows 12-16 ->
+# 13-17), keeping a 1-tile buffer from the widened east N-S road
+# at cols 67-68. Player returning from town now dismounts directly
+# on the door tile at (73, 12), stepping onto the north E-W road
+# so the natural next move is west into the plaza or south down
+# the east road. Henry the Stablemaster stands at the door.
+stable    pos=70,13  size=7,5    door=73,12   npc=henry
+
+# Farm building anchored just east of the farm zone -- Agnes opens
+# the BuildingUpgradePopup on E to unlock plot tiers. Door is grass
+# at row 27, on the main east-west road's north edge so she has
+# foot traffic past her.
+farm      pos=61,22  size=5,5    door=63,27   npc=agnes
+
+# Storehouse: bulk-stockpile building east of the farm, accessible
+# from the south road. 5/25: shifted east 2 tiles (cols 68-74 ->
+# 70-76) so it (a) clears the widened east N-S road at cols 67-68
+# with a 1-tile buffer, and (b) aligns vertically with the stable's
+# column band at 70-76. Door at (73, 27) puts Reeve on the road
+# row 27, one tile north of the east-west main road at 28-29.
+storehouse  pos=70,22  size=7,5  door=73,27   npc=reeve

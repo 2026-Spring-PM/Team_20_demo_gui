@@ -1,0 +1,224 @@
+# =============================================================================
+# definitions.txt -- catalog of every NPC identity that can exist in game.
+#
+# Each [section] declares one NPC. The section header is the NPC's stable
+# ID, used everywhere: building files reference NPCs by ID (`npc=agnes`),
+# placement files reference NPCs by ID, code looks up NPCs by ID via
+# findNpcDefById().
+#
+# Required fields:
+#   name      Display name shown above the NPC and in dialog headers.
+#   role      Semantic role; maps to the NpcRole enum in NpcRegistry.h.
+#             Determines (a) which NPC subclass is instantiated and
+#             (b) which interact branch fires when the player presses E.
+#
+# Optional fields:
+#   title     Subtitle / occupation (e.g. "Merchant"). Currently informational.
+#   color     RGB triple "r, g, b" (0-255 each).
+#   shop      For Merchant / RareGoodsMerchant / WanderingMerchant roles:
+#             the ID of the shop file (assets/shops/<id>.txt) to load.
+#   building  For Production / BuildingUpgrade roles: which BuildingKind
+#             this NPC is tied to (e.g. Mill, Bakery, Winery, Dairy).
+#   dialog    One dialog line. Repeat for multiple. Shown in rotation by
+#             InteractiveNpc; ignored for Shop / Production / Decorative.
+#
+# Notes:
+#   - Decorative villagers all share one definition ('villager'); their
+#     palette colour is rotated at spawn time by PlayState.
+#   - Knight is the player and has no NPC entity; only its role
+#     (`Player`) matters so the spawn loop knows to set playerStart.
+# =============================================================================
+
+[knight]
+name = Knight
+role = Player
+color = 255, 255, 255
+
+[lyra]
+name = Lilith
+title = Maid
+role = Maid
+color = 210, 160, 200
+dialog = Good morning, my lord. The fields await your hand.
+dialog = I prepared tea. It went cold. I prepared it again.
+dialog = The villagers speak of strange tracks near the woods. I do not pry.
+dialog = Your father would be proud, my lord. Or perhaps not. I never met him.
+dialog = Sleep well tonight. Tomorrow's labor will be heavier than today's.
+
+[bran]
+name = Bran
+title = Merchant
+role = Merchant
+color = 220, 180, 100
+shop = bran
+dialog = Welcome! Seeds, livestock, tools -- name your need.
+dialog = Prices today are fair. Tomorrow... who knows.
+dialog = Heard the eastern road has bandits again. Travel light.
+dialog = A wandering merchant passed through last week. Things even I hadn't seen.
+dialog = Coin doesn't sleep, my lord. Neither do I, much.
+
+[otto]
+name = Otto
+title = Smith
+role = Smith
+color = 130, 130, 160
+dialog = I work metal like no other. Press E with a worn blade -- I'll fix it.
+dialog = Repair's two Col per scratch. Bargain, considering what I save you.
+dialog = Truthfully, smithing is all magic. If a proper mage shows up, I'm out of work.
+dialog = Save your ore for me, my lord. The merchant'll fleece you.
+dialog = My hands made every nail in this village. They ache, but they remember.
+
+[agnes]
+name = Agnes
+title = Farmer
+role = Farmer
+color = 210, 170, 100
+
+[nellie]
+name = Charles
+title = Herder
+role = Herder
+color = 200, 175, 145
+dialog = The chickens lay best at dawn. Cows give milk twice a day.
+dialog = Feed them well -- happy beasts give richer goods.
+dialog = Bee swarms are temperamental. Approach them with respect.
+dialog = Sheep wool grows back faster than you'd think.
+dialog = Tristan handles the pen expansion paperwork. I just tend the animals.
+
+[reeve]
+name = Markus
+title = Storehouse Keeper
+role = Storehouse
+color = 180, 140, 100
+dialog = The storehouse keeps bulk goods. Crops, milk, eggs -- press E to manage.
+dialog = If your bag's full, dump it here.
+dialog = Records, ledgers, dust. The life of a Reeve.
+dialog = Tristan keeps the master ledger. I keep what's edible.
+dialog = Cold storage is one of our finer inventions.
+
+[tristan]
+name = Tristan
+title = Steward
+role = Steward
+color = 160, 140, 200
+building = TownHall
+dialog = Press E to review building upgrades.
+dialog = Every coin spent here returns threefold, my lord.
+dialog = The village ledger is in order. Mostly.
+dialog = Higher levels unlock better goods and more efficient workers.
+dialog = Tax collection day approaches. The peasants are uneasy.
+
+[greta]
+name = Greta
+title = Miller
+role = Production
+color = 220, 220, 180
+building = Mill
+dialog = Wheat goes in, flour comes out. The stone does the talking.
+dialog = Grade tells the story -- S+ flour for the noble bakeries, C for stew.
+dialog = Push the lever, let the river do the work.
+dialog = If you're hauling, I'll process. That's our arrangement.
+
+[eda]
+name = Eda
+title = Dairymaid
+role = Production
+color = 240, 220, 180
+building = Dairy
+dialog = Milk into butter, butter into cheese. The grade follows the milk.
+dialog = Older milk doesn't make better cheese. It makes spoiled cheese.
+dialog = Bring me fresh and I'll make you proud.
+
+[ros]
+name = Ros
+title = Baker
+role = Production
+color = 230, 180, 130
+building = Bakery
+dialog = Flour and water, then patience. Bread takes time.
+dialog = The oven runs hot all day. Bring me flour, I'll bring you loaves.
+dialog = S-grade flour, S-grade bread. Simple as that.
+
+[aldous]
+name = Karl
+title = Vintner
+role = Production
+color = 160, 80, 100
+building = Winery
+dialog = Grapes in, wine out. The vintage carries every gram of the grape.
+dialog = Quality goes UP with grade. Bring premium fruit, get premium wine.
+dialog = Winemaking is patience and waiting. I do both.
+
+[villager]
+name = Villager
+role = Decorative
+color = 200, 200, 200
+
+[marlow]
+name = Bruno
+title = Gambler
+role = Gambler
+color = 180, 120, 180
+dialog = Care for a game of chance? E to play.
+dialog = The house always wins. Unless you do.
+dialog = Lucky numbers, lucky days. It's all the same.
+
+[iola]
+name = Iola
+title = Rare Goods Vendor
+role = RareGoodsMerchant
+color = 200, 140, 200
+shop = iola
+dialog = Rare goods from the northern markets. Press E to browse.
+dialog = Quality has a price. So does scarcity.
+dialog = Some items are not for everyone.
+
+[henry]
+name = Henry
+title = Stablemaster
+role = Stablemaster
+color = 170, 130, 100
+dialog = Ready to ride? Press E to travel between village and city.
+dialog = The horses are well-fed. Each trip burns game hours.
+dialog = Higher-tier stables = faster trips. Tristan handles the upgrade.
+
+# 5/25 NPC system demo: town's stablemaster uses the SAME role as Henry
+# (so the same travel-sequence dispatch fires when the player presses E),
+# but is a separate identity with his own name, colour, and dialogue.
+# Adding NPCs that share an existing role is now pure data -- no code
+# change in PlayState or anywhere else.
+[cedric]
+name = Cedric
+title = Stablemaster
+role = Stablemaster
+color = 150, 110, 140
+dialog = Town stable, my lord. Ready to ride back to the village?
+dialog = Henry's a good man. Slow as a Sunday sermon, mind you.
+dialog = City horses are bred for the cobbles. Faster than Henry's pasture-ponies.
+dialog = Press E and I'll have the saddle on before you finish the thought.
+dialog = Tristan keeps the ledger for both stables. We just hold the reins.
+
+[almanac]
+name = Celine
+title = Weather Almanac
+role = Almanac
+color = 235, 210, 150
+dialog = Press E for the 3-day weather forecast.
+
+[wanderer]
+name = Mustafar
+title = Wandering Merchant
+role = WanderingMerchant
+shop = wanderer
+# Faded purple -- evokes the rare/mystical traveling-trader vibe and
+# stands out clearly from Bran's brown (Merchant) and Iola's teal
+# (RareGoodsMerchant). The bright outline keeps him easy to spot from
+# the player's default spawn position on the village's main road.
+color = 180, 140, 220
+# Dialogs are ignored for Shop NPCs (E always opens the shop popup);
+# kept here so the NPC has a "voice" if a future tooltip system reads
+# them.
+dialog = I'm only here for a day or two. Speak quickly.
+dialog = I travel where the roads take me. Today they took me to you.
+dialog = Goods from places you'll never see. Prices to match.
+dialog = Buy now. I won't be back tomorrow, perhaps not next week either.

@@ -1,0 +1,20 @@
+# =============================================================================
+# dungeon_field.txt -- buildings for the Abandoned Dungeon FIELD (5/29).
+#
+# The dungeon field is a small separate outdoor map you ride to from
+# Henry (like the city is its own scene). It holds ONE decorative
+# building: the return stable in the south, sitting right behind the
+# InteriorExit "ride back" tile. The dungeon entrance itself is a
+# DungeonGate tile cluster (not a building) at the north edge.
+#
+# Format (same as village.txt / town.txt):
+#   <kind>  pos=<tx,ty>  size=<w,h>  door=<tx,ty>
+#
+# Field is 33x21 tiles. The stable spans rows 15-18, cols 13-18; the
+# InteriorExit tile sits at (16,14) one row north of it, so the player
+# walks up to the stable's north face and presses E to ride home.
+# Decorative only -- no NPC, no recipes; the return interaction is
+# driven by the InteriorExit tile, not the building.
+# =============================================================================
+
+stable  pos=13,15  size=6,4  door=16,15

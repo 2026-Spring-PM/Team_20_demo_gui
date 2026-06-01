@@ -1,0 +1,10 @@
+# =============================================================================
+# townhall_placements.txt -- NPCs inside the Town Hall interior.
+#
+# Same format as the scene placement files: <npc_id>  <col>, <row>
+# Interior grid is 13x9; col 6 is the centerline. Tristan stands at
+# (6, 4) -- center column, slightly above the middle, with his back to
+# the rear wall and the exit door (6, 7) directly south of him so the
+# player walks straight up from the entrance to meet him.
+# =============================================================================
+tristan   6, 4

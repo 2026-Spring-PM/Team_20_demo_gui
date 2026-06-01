@@ -1,0 +1,65 @@
+# =============================================================================
+# bran.txt -- Bran the Village Merchant's shop catalog.
+#
+# Format (one entry per non-blank, non-`#` line):
+#   <kind>  <id>  [at_village_lv=<n>]
+#
+# <kind>:
+#   seed     A crop seed item. Auto-gated by CropDef::unlockLevel (the
+#            village level must be >= the crop's unlock level).
+#   animal   A livestock entry. Adds "<kind> (baby)" to the buy list.
+#            Use at_village_lv=N to gate behind a village level (this
+#            mirrors the old addLateAnimal() in ShopPopup.cpp).
+#   item     A generic ItemId (gear, potions, magic stones, etc.).
+#            Equipment items are auto-hidden if already owned.
+#
+# <id> is the canonical name string of the ItemId / AnimalKind enum value
+# (case-sensitive, e.g. WheatSeed, BronzeSword, Cow).
+#
+# Prices are sourced from ItemDef::basePrice / AnimalDef::buyPriceCol so
+# this catalog only declares WHAT is for sale, not at what price.
+#
+# title is the popup header text. If omitted, the merchant's name is used.
+# =============================================================================
+title = Bran's Wares
+
+# ---- Seeds (basic crops) ----
+seed   WheatSeed
+seed   CarrotSeed
+seed   TomatoSeed
+seed   PumpkinSeed
+seed   WinterberrySeed
+
+# ---- Livestock ----
+# Sheep and Bee Swarm gate behind village level (Pen Lv 4 / Lv 5 in the
+# upgrade table = Village Lv 6 / Lv 7).
+animal Cow
+animal Chicken
+animal Sheep    at_village_lv=6
+animal Bee      at_village_lv=7
+
+# ---- Feed ----
+item   QuickFeed
+item   RichFeed
+
+# ---- Weapons (tier order) ----
+# (Bronze Sword removed 5/30 -- starter is now Iron Sword)
+item   IronSword
+item   ThrowingAxe
+item   KnightSword
+item   SilverSabre
+
+# ---- Armour (Leather / Iron / Knight sets) ----
+item   LeatherHelm
+item   LeatherChest
+item   LeatherBoots
+item   IronHelm
+item   IronChest
+item   IronBoots
+item   KnightHelm
+item   KnightChest
+item   KnightBoots
+
+# ---- Consumables ----
+item   HpPotion
+item   ManaPotion

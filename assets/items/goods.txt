@@ -1,0 +1,89 @@
+# goods.txt -- item definitions (good). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[Flour]
+name  = Flour
+type  = good
+color = 235,225,180
+price = 75
+product = true
+
+[Cheese]
+name  = Cheese
+type  = good
+color = 240,210,120
+price = 85
+product = true
+
+[Bread]
+name  = Bread
+type  = good
+color = 195,150,90
+price = 80
+product = true
+
+[Wine]
+name  = Wine
+type  = good
+color = 140,40,60
+price = 320
+product = true
+
+[Butter]
+name  = Butter
+type  = good
+color = 245,225,150
+price = 140
+product = true
+
+[PumpkinPie]
+name  = Pumpkin Pie
+type  = good
+color = 230,170,90
+price = 220
+product = true
+
+[AgedCheese]
+name  = Aged Cheese
+type  = good
+color = 230,195,100
+price = 260
+product = true
+
+[VintageWine]
+name  = Vintage Wine
+type  = good
+color = 110,30,50
+price = 720
+product = true
+
+[ManaJam]
+name  = Mana Jam
+type  = good
+color = 120,160,235
+price = 260
+product = true
+
+[DragonPie]
+name  = Dragon Pie
+type  = good
+color = 230,120,170
+price = 540
+product = true
+
+[FrostSorbet]
+name  = Frost Sorbet
+type  = good
+color = 190,225,240
+price = 320
+product = true
+
+[HoneyMead]
+name  = Honey Mead
+type  = good
+color = 225,185,95
+price = 820
+product = true

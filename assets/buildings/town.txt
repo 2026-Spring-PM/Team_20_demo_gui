@@ -1,0 +1,86 @@
+# =============================================================================
+# town.txt -- placements for buildings in the Town District (5/19 dev item 1).
+#
+# The town is a separate scene from the village; PlayState swaps the
+# active TileMap + BuildingRegistry + NPC list when the player walks the
+# travel stone. The buildings here are decorative (no recipes, no
+# NPCs) -- the gameplay anchors are the registered NPCs ("Iola" the
+# special vendor, "Marlow" the gambler, "Z" the return travel stone)
+# placed via assets/maps/town.txt.
+#
+# Format (same as village.txt):
+#   <kind>  pos=<tx,ty>  size=<w,h>  door=<tx,ty>  [npc=<marker>]
+#
+# Coordinates are in TILE units (multiplied by TILE_SIZE in
+# BuildingRegistry). The town is 60x40 tiles. Building sizes here are
+# intentionally village-scale (5x5 to 10x4 tiles) so the town feels as
+# populated as the home village rather than a half-empty plaza.
+#
+# Layout (text sketch -- left = west, top = north):
+#
+#     row 2-7:     [ House1 ] [ House2 ]   [  TallHouse  ]  [ House3 ]
+#     row 12:                X (Iola)
+#     row 15-18:             [Fountain]
+#     row 22:                G (Marlow)
+#     row 28:                Z (return stone)
+#     row 30-35:   [ House4 ] [ House5 ]   [ TallHouse2 ]   [ House6 ]
+#
+# All buildings are decorative -- no NPC marker -- so the player walks
+# AROUND them but they don't open popups. The collider is the
+# building's full rect.
+# =============================================================================
+
+# Central fountain (rows 15-18, cols 26-29). Visual heart of the town:
+# Iola stands north, Marlow stands south, the return stone sits a few
+# rows further south. door=0,0 is a placeholder the fountain render
+# path ignores.
+fountain  pos=26,15  size=4,4  door=0,0
+
+# -- Northern row of decorative houses (rows 2-7) --
+shop       pos=4,2    size=8,5    door=7,7
+bakery     pos=14,2   size=8,5    door=17,7
+townhall   pos=24,2   size=12,5   door=30,7
+mill       pos=38,2   size=8,5    door=41,7
+dairy      pos=48,2   size=8,5    door=51,7
+
+# -- Southern row of decorative houses (rows 30-35) --
+winery     pos=4,30   size=8,5    door=7,35
+bakery     pos=14,30  size=8,5    door=17,35
+townhall   pos=24,30  size=12,5   door=30,35
+shop       pos=38,30  size=8,5    door=41,35
+smithy     pos=48,30  size=8,5    door=51,35
+
+# -- Two small west-side houses (around the Iola/Marlow level) --
+mill       pos=4,12   size=6,4    door=6,16
+dairy      pos=4,21   size=6,4    door=6,25
+
+# -- East-side house (only the north one now) --
+# 5/23 final: the south mill of this east pair was REMOVED entirely
+# when the stable took its (50,21) slot. The user preferred a clean
+# deletion over swapping the mill into the stable's former central
+# spot (36,23) -- the central area now reads as open plaza rather
+# than as another decorative house, and the east column reads as
+# bakery-on-top, stable-on-bottom which is the player's mental
+# model after pressing E on Henry.
+bakery     pos=50,12  size=6,4    door=52,16
+
+# 5/23 dev: Town-side Stable. Iterations:
+#   1st pass (27,28) -- overlapped the south townhall (24,30)-(35,34).
+#   2nd pass (36,23) -- worked but felt off-center; Henry at the
+#     south door faced an unused interior strip.
+#   3rd pass (50,21) via swap -- moved into the east-column slot but
+#     also reshuffled the south mill into the central area, which
+#     the user found cluttered.
+#   Current   (50,21) via mill-removal -- same stable position as
+#     the 3rd pass, but the displaced south mill is dropped entirely
+#     so the central plaza stays open. Door at (49,22) places Henry
+#     at the EXACT CENTER of the building's west edge, one tile west
+#     of the footprint on grass -- he faces into the town plaza so
+#     the player sees him head-on when they dismount. (Strictly, for
+#     a 4-row span centered between rows 22 and 23, "center" picks
+#     the upper of the two; pick (49,23) if the lower-center
+#     placement is preferred.)
+# Shares its logical level with the village stable -- PlayState
+# syncs both after every Tristan-brokered upgrade.
+stable     pos=50,21  size=6,4    door=49,22
+

@@ -1,0 +1,26 @@
+tiles.png is composed from two Kenney pixel-art packs, both released
+under Creative Commons CC0 1.0 (public domain dedication):
+
+  Tiny Town     — https://kenney.nl/assets/tiny-town
+  Tiny Dungeon  — https://kenney.nl/assets/tiny-dungeon
+
+CC0 does not require attribution, but Kenney requests a credit or
+donation as a courtesy if you use the work in a public project. See
+https://kenney.nl for both options.
+
+Source tiles used (Kenney sheet, col, row):
+  Grass v0-v2:  Tiny Town    (0, 0)   plain green
+  Grass v3:     Tiny Town    (1, 0)   subtle grass tufts
+  Path v0-v3:   Tiny Town    (1, 2)   plain sand
+  Soil v0-v2:   Tiny Dungeon (0, 0)   plain dirt
+  Soil v3:      Tiny Dungeon (1, 0)   dirt with debris
+  Wall v0-v3:   Tiny Dungeon (1, 3)   horizontal brick
+
+Water tiles in tiles.png are NOT from Kenney -- neither pack ships
+water tiles. They are synthesised in scripts/build_atlas.py using a
+flat blue (RGB 0,153,219) sampled from the blue-potion sprite in
+Tiny Dungeon (8, 9), so they sit in the same colour vocabulary as
+the rest of the atlas without clashing.
+
+To regenerate the atlas after replacing tile picks:
+  python3 scripts/build_atlas.py

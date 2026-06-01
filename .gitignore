@@ -1,0 +1,18 @@
+# === Team_20_demo .gitignore ==========================================
+# Mid-term DEMO repo: ships the prebuilt executable + assets, NO source.
+# Keep build/main committed; ignore all other build clutter.
+
+build/*
+!build/main
+!build/.gitkeep
+
+# Runtime save data (regenerated each run; defaults live in the binary)
+save/
+*.save
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*Zone.Identifier

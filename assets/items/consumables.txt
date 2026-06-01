@@ -1,0 +1,17 @@
+# consumables.txt -- item definitions (consumable). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[HpPotion]
+name  = HP Potion
+type  = consumable
+color = 220,70,80
+price = 60
+
+[ManaPotion]
+name  = Mana Potion
+type  = consumable
+color = 90,150,235
+price = 80

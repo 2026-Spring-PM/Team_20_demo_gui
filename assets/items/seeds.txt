@@ -1,0 +1,68 @@
+# seeds.txt -- item definitions (seed). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[WheatSeed]
+name  = Wheat Seed
+type  = seed
+color = 220,205,140
+price = 6
+seed = true
+
+[CarrotSeed]
+name  = Carrot Seed
+type  = seed
+color = 220,150,80
+price = 8
+seed = true
+
+[TomatoSeed]
+name  = Tomato Seed
+type  = seed
+color = 200,90,70
+price = 15
+seed = true
+
+[PumpkinSeed]
+name  = Pumpkin Seed
+type  = seed
+color = 210,130,50
+price = 20
+seed = true
+
+[WinterberrySeed]
+name  = Wberry Seed
+type  = seed
+color = 140,160,210
+price = 18
+seed = true
+
+[GoldenWheatSeed]
+name  = Gold Wheat Seed
+type  = seed
+color = 240,210,90
+price = 30
+seed = true
+
+[ManaBerrySeed]
+name  = Mana Berry Seed
+type  = seed
+color = 150,180,255
+price = 55
+seed = true
+
+[FrostLilySeed]
+name  = Frost Lily Seed
+type  = seed
+color = 180,220,235
+price = 110
+seed = true
+
+[DragonFruitSeed]
+name  = Dragon Fruit Seed
+type  = seed
+color = 220,80,140
+price = 240
+seed = true

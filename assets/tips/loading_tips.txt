@@ -1,0 +1,45 @@
+# =============================================================================
+# loading_tips.txt -- short hints shown on the travel-loading screen.
+#
+# One tip per line. Blank lines and lines starting with '#' are
+# ignored (comments). Keep each tip under ~100 characters so it fits
+# the loading screen footer at the default text size without wrap.
+#
+# These are read once at PlayState startup; one is picked at random
+# every time the player rides between Village and Town.
+# =============================================================================
+
+# Gameplay basics
+Press T while standing in the village to open the bulk farm action menu.
+Equip a weapon AND a magic stone -- one covers physical, the other magic damage.
+Don't try to leave the village mid-wave. Henry won't ready a horse with monsters loose.
+The east-west road through the village splits the farm from the workshops.
+
+# NPCs + buildings
+Tristan in the Town Hall manages village-level upgrades and per-building tiers.
+Otto at the Smithy enhances weapons. Bring mana crystals and prisms.
+Greta, Ros, and Karl run the three production buildings along the farm's north edge.
+Markus guards the storehouse -- spillover crops go there when your bag fills up.
+Charles tends the pen. Talk to him to bulk-feed or bulk-collect from the herd.
+
+# Exploration
+The City carries goods the Village vendors don't stock. Trade often.
+Iola sells rare items in the City -- check her shop after you upgrade the village.
+Buildings with doors can be entered. Stand at the door and press E.
+
+# Time and weather
+A whole in-game hour passes every minute of real play. Sleep advances time faster.
+Weather affects crop growth. Storms damage seedlings; sunny days speed harvests.
+Bruno's gambling table closes after five hands per season. Pick your battles.
+
+# Quality of life
+Q swaps between equipped weapons. Number keys 1-4 swap hotbar consumables.
+Watering plots before sunrise gives a small growth bonus on most crops.
+The almanac in the plaza predicts the next three days of weather.
+
+# Jokes
+People die when they are killed.
+Press Alt+F4 to quit the game.
+To win in combat, take the high ground.
+All your wheat are belong to us
+Professor T.S.Moon teaches Programming Methodology

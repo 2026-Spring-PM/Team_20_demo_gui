@@ -1,0 +1,62 @@
+# =============================================================================
+# village_decorations.txt
+# 5/27 dev: tile-aligned decorative props for the village scene.
+#
+# Format (one decoration per non-blank, non-`#` line):
+#   <SpriteId> <tx> <ty>
+#
+# Tokens are whitespace or comma separated. Inline `#` starts a comment.
+#
+# Known SpriteId names (case-sensitive, must match the C++ enum):
+#   MeadowFlower   -- 2-frame animated wind-sway, 32x32. Grass only.
+#   TileDirtStone  -- 1-frame stone-on-dirt scenic prop, 32x32.
+#
+# NOTE on TileDirtStone:
+#   The dirt-stone overlay is NOT placed from this file -- it is
+#   generated procedurally in PlayState::initWorld() by scanning the
+#   active map for Path tiles and applying a deterministic ~8% density
+#   scatter. This keeps the placement file focused on hand-authored
+#   decoration (flowers in eye-catching spots) while pebbles follow the
+#   actual path geometry of whichever map.txt is loaded.
+#   If you DO want a one-off hand-placed stone -- e.g. a landmark
+#   boulder at a specific tile -- you can still add a TileDirtStone
+#   line here; the parser accepts it, and the placement renders on top
+#   of whatever the underlying tile is.
+#
+# Placement rules of thumb:
+#   - Decorations are VISUAL ONLY -- they don't affect walkability or
+#     the autotile neighbour matching. A flower on Grass still walks
+#     and autotiles as Grass.
+#   - Drop them on grass tiles ('.' in world.txt). Anywhere else they
+#     render technically correctly but read weird (a flower painted
+#     over a path stone, etc.).
+#   - The village map is 80x60. (0,0) is the top-left WALL tile;
+#     the playable grass starts at col 1 / row 1 inclusive.
+#   - Avoid building footprints (see assets/buildings/village.txt for
+#     the kind/pos/size grid).
+#
+# Current set: a sprinkle of meadow flowers in the upper plaza and along
+# the eastern grass strip -- enough to make the village feel alive
+# without burying the player's eye line. Add / remove freely.
+# =============================================================================
+
+# --- Upper plaza grass band (rows 2-9, between west and east columns) ---
+MeadowFlower    22  3
+MeadowFlowerRed 29  5
+MeadowFlower    36  2
+MeadowFlowerRed 44  4
+MeadowFlower    52  6
+MeadowFlowerRed 59  3
+
+# --- Eastern grass strip (cols 71-78, scattered rows) ---
+MeadowFlower    72  8
+MeadowFlowerRed 74 15
+MeadowFlower    73 24
+MeadowFlowerRed 76 32
+MeadowFlower    72 41
+MeadowFlowerRed 75 50
+
+# --- A couple near the upper-left to balance the layout ---
+MeadowFlowerRed  3  4
+MeadowFlower     8  7
+MeadowFlowerRed 14  2
