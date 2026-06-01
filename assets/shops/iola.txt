@@ -1,0 +1,38 @@
+# =============================================================================
+# iola.txt -- Iola the Rare Goods Vendor's catalog (city, north shop).
+#
+# Same format as bran.txt. Iola sells late-game crops, magic stones,
+# mid-late gear, and the dragon tier. Crystals are listed last so the
+# player scrolls past the gear first.
+# =============================================================================
+title = Iola's Rare Goods
+
+# ---- Seeds (premium / fantasy crops; auto-gated by CropDef::unlockLevel) ----
+seed   GoldenWheatSeed
+seed   ManaBerrySeed
+seed   FrostLilySeed
+seed   DragonFruitSeed
+
+# ---- Magic stones (permanent-on-death) ----
+item   IceStone
+item   FireStone
+item   LightningStone
+item   AuraStone
+
+# ---- High-tier weapons (5/30 overhaul: straight + rapier) ----
+item   AuroraCaliber
+item   CrystalVine
+
+# ---- Mid-late armor (Mithril) ----
+item   MithrilHelm
+item   MithrilChest
+item   MithrilBoots
+
+# ---- Top-tier armor (Dragonscale) ----
+item   DragonscaleHelm
+item   DragonscaleChest
+item   DragonscaleBoots
+
+# ---- Upgrade crystals (listed last) ----
+item   ManaCrystal
+item   ManaPrism

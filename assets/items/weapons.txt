@@ -1,0 +1,130 @@
+# weapons.txt -- item definitions (weapon). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+# 5/30 weapon overhaul: Bronze Sword is no longer obtainable (starter is now
+# Iron Sword; removed from shops). Definition kept so legacy saves still work.
+[BronzeSword]
+name  = Bronze Sword
+type  = weapon
+color = 190,140,90
+price = 120
+slot  = melee
+attack = 10
+durability = 30
+attack_color = 220,140,70
+
+[IronSword]
+name  = Iron Sword
+type  = weapon
+color = 190,200,210
+price = 320
+slot  = melee
+attack = 22
+durability = 70
+attack_color = 190,200,215
+
+[KnightSword]
+name  = Knight Sword
+type  = weapon
+color = 230,235,255
+price = 800
+slot  = melee
+attack = 40
+durability = 110
+attack_color = 245,240,220
+
+# 5/30 weapon overhaul: dragon-slaying trophy (granted on Pyrothorn's defeat,
+# no longer sold). Now a DATA-ONLY item -- its old enum slot went to Elucidator.
+[DragonbaneSword]
+name  = Dragonbane
+type  = weapon
+color = 255,210,140
+price = 2400
+slot  = melee
+attack = 60
+durability = 120
+attack_color = 255,90,70
+special = dragonbane_vulnerable
+
+[SilverSabre]
+name  = Silver Rapier
+type  = weapon
+color = 220,230,245
+price = 900
+slot  = melee
+attack = 24
+durability = 150
+attack_speed = 0.6
+attack_color = 170,220,255
+
+[ThrowingAxe]
+name  = Throwing Axe
+type  = weapon
+color = 160,140,100
+price = 480
+slot  = melee
+attack = 28
+durability = 60
+melee_style = throw
+
+[Tenebris]
+name  = Tenebris
+type  = weapon
+color = 120,40,160
+price = 6800
+slot  = melee
+attack = 75
+durability = 280
+curse_damage = 5
+curse_duration = 1.0
+
+[Astralis]
+name  = Astralis
+type  = weapon
+color = 90,70,200
+price = 4800
+slot  = melee
+attack = 60
+durability = 200
+attack_speed = 0.6
+curse_damage = 5
+curse_duration = 3.0
+
+# 5/30 weapon overhaul: high-tier straight sword, sold at Iola. Data-only item.
+[AuroraCaliber]
+name  = Aurora Caliber
+type  = weapon
+color = 130,230,180
+price = 2400
+slot  = melee
+attack = 60
+durability = 160
+attack_color = 130,255,200
+
+# 5/30 weapon overhaul: high-tier rapier, sold at Iola. Data-only item.
+[CrystalVine]
+name  = Crystal Vine
+type  = weapon
+color = 170,220,235
+price = 2600
+slot  = melee
+attack = 36
+durability = 220
+attack_speed = 0.6
+attack_color = 150,230,255
+
+# 5/30 weapon overhaul: top straight sword, dropped on the FIRST Core Dungeon
+# clear. Took over the old DragonbaneSword enum slot (so it's a known item).
+# "A non-cursed Tenebris" -- same raw stats (75 atk / 280 dur), no curse.
+[Elucidator]
+name  = Elucidator
+type  = weapon
+color = 50,60,90
+price = 5200
+slot  = melee
+attack = 75
+durability = 280
+attack_color = 120,180,255

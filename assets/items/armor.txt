@@ -1,0 +1,170 @@
+# armor.txt -- item definitions (armor). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[LeatherHelm]
+name  = Leather Helm
+type  = armor
+color = 160,110,70
+price = 80
+slot  = helm
+defense = 1
+durability = 30
+
+[LeatherChest]
+name  = Leather Chest
+type  = armor
+color = 150,100,60
+price = 140
+slot  = chest
+defense = 2
+durability = 40
+
+[LeatherBoots]
+name  = Leather Boots
+type  = armor
+color = 140,95,55
+price = 80
+slot  = boots
+defense = 1
+durability = 30
+
+[IronHelm]
+name  = Iron Helm
+type  = armor
+color = 180,190,200
+price = 220
+slot  = helm
+defense = 3
+durability = 55
+
+[IronChest]
+name  = Iron Chest
+type  = armor
+color = 170,180,190
+price = 360
+slot  = chest
+defense = 5
+durability = 75
+
+[IronBoots]
+name  = Iron Boots
+type  = armor
+color = 165,175,185
+price = 220
+slot  = boots
+defense = 2
+durability = 55
+
+[KnightHelm]
+name  = Knight Helm
+type  = armor
+color = 220,225,240
+price = 520
+slot  = helm
+defense = 6
+durability = 90
+
+[KnightChest]
+name  = Knight Chest
+type  = armor
+color = 210,220,235
+price = 820
+slot  = chest
+defense = 9
+durability = 120
+
+[KnightBoots]
+name  = Knight Boots
+type  = armor
+color = 205,215,230
+price = 520
+slot  = boots
+defense = 5
+durability = 90
+
+[DragonscaleHelm]
+name  = Dscale Helm
+type  = armor
+color = 140,200,170
+price = 1400
+slot  = helm
+defense = 10
+durability = 160
+
+[DragonscaleChest]
+name  = Dscale Chest
+type  = armor
+color = 130,190,160
+price = 2200
+slot  = chest
+defense = 14
+durability = 220
+
+[DragonscaleBoots]
+name  = Dscale Boots
+type  = armor
+color = 120,180,155
+price = 1400
+slot  = boots
+defense = 8
+durability = 160
+
+[MithrilHelm]
+name  = Mithril Helm
+type  = armor
+color = 200,215,235
+price = 650
+slot  = helm
+defense = 8
+durability = 120
+
+[MithrilChest]
+name  = Mithril Chest
+type  = armor
+color = 190,205,225
+price = 1100
+slot  = chest
+defense = 11
+durability = 165
+
+[MithrilBoots]
+name  = Mithril Boots
+type  = armor
+color = 180,195,215
+price = 650
+slot  = boots
+defense = 6
+durability = 120
+
+[AstralCrown]
+name  = Corona Fontis
+type  = armor
+color = 200,230,255
+price = 3200
+slot  = helm
+defense = 16
+durability = 280
+mp_regen_mul = 1.2
+
+[AstralPlate]
+name  = Cruor Karma
+type  = armor
+color = 195,225,250
+price = 5200
+slot  = chest
+defense = 22
+durability = 360
+damage_reflect_pct = 0.10
+
+[AstralGreaves]
+name  = Umbra Cursor
+type  = armor
+color = 185,215,245
+price = 3200
+slot  = boots
+defense = 14
+durability = 280
+move_speed_mul = 1.1

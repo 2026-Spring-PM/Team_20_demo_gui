@@ -1,0 +1,87 @@
+# =============================================================================
+# wanderer.txt -- Mustafar the Wandering Merchant's catalog.
+#
+# 5/26: catalog rebuilt from scratch. Mustafar no longer overlaps with Iola;
+# instead he is the sole source of seven MYTHIC pieces that strictly
+# outclass every weapon, armour piece, and magic stone available in the
+# town shop. This matches the game-design bible's wandering-merchant brief:
+#   "중심 도시에서 볼 수 없는 희귀 물품 판매 (중심 도시보다 조금 더 비싼
+#    시세로 현재 중심지에서 얻을 수 있는 자원보다 더 좋은 능력으로,
+#    장기간 활약할 수 있는 것으로 판매)."
+#
+# Stat headlines vs the previous best (Iola's Dragonbane / Dragonscale set
+# / LightningStone):
+#   Weapons:  Tenebris  75 atk cursed straight-sword (curse DoT 5/0.5s)
+#             Astralis  60 atk cursed rapier -- weaker but faster, same curse
+#   Armour:   Astral set    16/22/14 = 52 def (vs Dragonscale 10/14/8 = 32)
+#                                                     -- +62% total defence
+#             Each Astral piece has ~40% more durability than its
+#             Dragonscale counterpart, too.
+#   Stones:   Voidshard     22 atk Lightning chain (vs LightningStone 14)
+#             Tempest Stone 20 atk Fire DoT       (vs FireStone     10)
+#
+# Pricing is roughly 2-3x the Iola equivalent (e.g. Tenebris 6800 vs
+# Dragonbane 2400). The full set lists at ~30,400 col, which is a long-
+# term saving goal rather than an impulse buy -- exactly the "장기간
+# 활약할 수 있는" framing.
+#
+# All seven items reuse existing combat hooks (eqAttack, eqDefense,
+# eqMagicEl, eqDurMax). No new gameplay code was required; the engine
+# treats them as higher-tier instances of the existing slot mechanics.
+# =============================================================================
+title = Mustafar's Mythic Wares
+
+# ---- Mythic weapons -----------------------------------------------------
+# Tenebris: mythic cursed straight-sword. A connected hit curses the
+# target -- +5 damage every 0.5s for a few seconds, on top of swing damage.
+# Astralis: mythic cursed rapier. Lower raw damage than Tenebris but a
+# noticeably faster swing, and the same lingering curse.
+item   Tenebris
+item   Astralis
+
+# ---- Mythic armour (5/30 overhaul: each piece now carries a passive) --------
+# Corona Fontis (helm)  : +20% MP regen rate.
+# Cruor Karma  (chest)  : reflects 10% of contact damage (bosses/dragon exempt).
+# Umbra Cursor (boots)  : +10% move speed.
+# Tokens are unchanged (AstralCrown/Plate/Greaves) so existing saves still load.
+# Each is auto-hidden once equipped or stashed (shared OwnsItemPredicate).
+item   AstralCrown
+item   AstralPlate
+item   AstralGreaves
+
+# ---- Mythic magic stones ------------------------------------------------
+# 5/26 imp #7: the wandering merchant now sells two Mustafar dark-magic
+# catalysts that DON'T mirror existing elemental stones -- they introduce
+# wholly new spells. The pre-imp-#7 catalogs sold Voidshard (Lightning
+# chain at 22 atk) and Tempest Stone (Fire DoT at 20 atk); both inherited
+# pre-existing element behaviour. The new pair instead drives PlayState's
+# cast dispatcher down branches it doesn't normally take:
+#
+#   Event Horizon : Gravity FIELD (5/26 v2). On cast, deposits a
+#                   long-lived gravity well at the cursor (same
+#                   cast feel as AuraStone -- cursor-anchored,
+#                   persistent area). Every tick the field damages
+#                   every monster inside its radius AND yanks them
+#                   toward its centre with a 1.5x kKnockbackImpulse
+#                   pull -- strong enough that monsters can't
+#                   casually stroll out of it. Use to gather a
+#                   scattered swarm into a single execute-able
+#                   cluster while they bleed inside the well.
+#                   (v1 was a projectile-with-pull that hit once;
+#                   the brief was retuned to require a persistent
+#                   field for the strengthened-pull identity.)
+#
+#   Stigmata      : Reflect AoE (5/26 v2 buff). While equipped,
+#                   every point of damage the player would have
+#                   eaten (the RAW pre-armor number, not the
+#                   post-mitigation value) is stored as a charge
+#                   on the Player. Casting magic dumps 5x the
+#                   stored charge as an AoE around the player and
+#                   resets the counter -- the 5x multiplier (v2)
+#                   lets a handful of swings against a heavy hitter
+#                   translate into a swarm-clearing release. The
+#                   actual dump value (charge x 5) is shown in the
+#                   hotbar stone tile so the player knows the
+#                   damage the next cast will deliver.
+item   EventHorizonStone
+item   StigmataStone

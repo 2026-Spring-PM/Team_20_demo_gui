@@ -1,0 +1,66 @@
+# stones.txt -- item definitions (magic_stone). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[BronzeMagicStone]
+name  = Bronze Stone
+type  = magic_stone
+color = 180,160,120
+price = 0
+slot  = stone
+
+[IceStone]
+name  = Ice Stone
+type  = magic_stone
+color = 140,200,240
+price = 900
+slot  = stone
+attack = 10
+element = ice
+
+[FireStone]
+name  = Fire Stone
+type  = magic_stone
+color = 240,120,60
+price = 900
+slot  = stone
+attack = 10
+element = fire
+
+[LightningStone]
+name  = Lightning Stone
+type  = magic_stone
+color = 255,230,90
+price = 1200
+slot  = stone
+attack = 14
+element = lightning
+
+[AuraStone]
+name  = Aura Stone
+type  = magic_stone
+color = 180,140,230
+price = 1100
+slot  = stone
+attack = 12
+element = aura
+
+[EventHorizonStone]
+name  = Event Horizon
+type  = magic_stone
+color = 60,20,90
+price = 3800
+slot  = stone
+attack = 22
+element = gravity
+
+[StigmataStone]
+name  = Stigmata
+type  = magic_stone
+color = 160,30,30
+price = 3400
+slot  = stone
+element = reflect
+special = stigmata_charge

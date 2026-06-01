@@ -1,0 +1,68 @@
+# crops.txt -- item definitions (crop). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[Wheat]
+name  = Wheat
+type  = crop
+color = 225,205,120
+price = 8
+product = true
+
+[Carrot]
+name  = Carrot
+type  = crop
+color = 230,135,50
+price = 12
+product = true
+
+[Tomato]
+name  = Tomato
+type  = crop
+color = 215,70,60
+price = 18
+product = true
+
+[Pumpkin]
+name  = Pumpkin
+type  = crop
+color = 225,130,30
+price = 38
+product = true
+
+[Winterberry]
+name  = Wberry
+type  = crop
+color = 90,130,210
+price = 28
+product = true
+
+[GoldenWheat]
+name  = Gold Wheat
+type  = crop
+color = 255,225,90
+price = 38
+product = true
+
+[ManaBerry]
+name  = Mana Berry
+type  = crop
+color = 90,140,235
+price = 45
+product = true
+
+[FrostLily]
+name  = Frost Lily
+type  = crop
+color = 220,240,250
+price = 95
+product = true
+
+[DragonFruit]
+name  = Dragon Fruit
+type  = crop
+color = 240,100,160
+price = 170
+product = true

@@ -1,0 +1,14 @@
+# =============================================================================
+# knight_house_placements.txt -- NPCs inside the Knight's House interior.
+#
+# 5/25: Lyra (Maid) was relocated from the village plaza (50, 13) to
+# the Knight's House interior. Same role / dispatch as before; only
+# her spawn point changed -- and free-floating placement at (50, 13)
+# in village_placements.txt was removed in the same pass so she
+# doesn't appear in both scenes.
+#
+# Interior grid is 13x9; col 6 is the centerline. Lyra stands at
+# (6, 4) -- centered horizontally, one tile north of the middle row,
+# directly above the exit door at (6, 7).
+# =============================================================================
+lyra   6, 4

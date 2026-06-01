@@ -1,0 +1,57 @@
+# =============================================================================
+# village_placements.txt -- free-floating NPCs in the village scene.
+#
+# These are NPCs that don't live at a building's door. Building-attached
+# NPCs are declared via `npc=<id>` in assets/buildings/village.txt and are
+# NOT listed here.
+#
+# Format (one NPC per non-blank, non-`#` line):
+#   <npc_id>  <col>, <row>
+#
+# <npc_id> matches a section header in assets/npcs/definitions.txt.
+# <col>, <row> are tile coordinates in the village map (0-indexed).
+#
+# The 'knight' entry replaces the old '@' map marker; the player spawn
+# point is wherever knight is placed. All other markers (L, Y, v) that
+# used to live in assets/maps/world.txt have been migrated here.
+# =============================================================================
+
+# Player spawn. 5/26 v2: moved from (40, 22) -> (40, 14). The
+# original spawn at row 22 was INSIDE the production strip's row,
+# which forced the 5/26 imp #4 dairy placement to leave a 6-tile
+# gap (cols 38-43) so the player wouldn't materialise inside a
+# building. That gap looked unbalanced -- dairy floated off to the
+# right while Mill/Bakery/Winery hugged each other on the left.
+# Bumping the spawn 8 rows north into the middle plaza lets the
+# four production buildings pack with uniform 1-tile gaps; the
+# player now wakes up centered in open grass with the full
+# production strip visible directly south of them.
+knight    40, 14
+
+# Free-floating named NPCs (was Y in world.txt). 5/25: Lyra moved
+# into the new Knight's House interior; her entry now lives in
+# assets/npcs/interiors/knight_house_placements.txt and she no
+# longer free-floats on the village map.
+#
+# 5/26 improvement #5 (v2): Weather Almanac moved from (40, 18) to
+# (40, 29). v1 first tried (40, 30) -- the topmost PATH row INSIDE
+# the farm zone -- but at the (40, 22) spawn that put the almanac
+# directly under the knight's feet on first spawn, and once the
+# player walked south the almanac visually overlapped the knight's
+# label on the road approach (see the 5/26 feedback screenshot).
+# v2 places it on the main east-west road itself (row 29 is all
+# path, the south edge of the [28, 29] road that separates the
+# village from the farm). The board sits on the road just north
+# of the first plot row, so it's eyeline-close to the field
+# WITHOUT eating a path tile inside the farm zone. Player still
+# passes it every time they head out to plant or harvest.
+almanac   40, 29
+
+# Decorative villagers (were 'v' markers in world.txt). The palette
+# colour for each one is rotated at spawn time, so the order matters
+# only for the colour cycle, not for identity.
+villager  40, 3
+villager  40, 14
+villager  3, 17
+villager  24, 21
+villager  54, 21

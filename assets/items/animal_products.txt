@@ -1,0 +1,33 @@
+# animal_products.txt -- item definitions (animal_product). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[Milk]
+name  = Milk
+type  = animal_product
+color = 245,245,235
+price = 20
+product = true
+
+[Egg]
+name  = Egg
+type  = animal_product
+color = 245,225,180
+price = 10
+product = true
+
+[Wool]
+name  = Wool
+type  = animal_product
+color = 245,235,210
+price = 65
+product = true
+
+[Honey]
+name  = Honey
+type  = animal_product
+color = 230,170,60
+price = 110
+product = true

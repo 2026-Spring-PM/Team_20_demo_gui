@@ -1,0 +1,37 @@
+# =============================================================================
+# town_decorations.txt
+# 5/27 dev: tile-aligned decorative props for the town (central city).
+#
+# See village_decorations.txt for the format reference. Same parser,
+# same SpriteId vocabulary.
+#
+# Town map is 60x42. The street (R) + sidewalk (V) plaza occupies roughly
+# cols 21-50 / rows 12-24; everything outside that band is grass and
+# safe for flower placement. The fountain + Iola + Marlow live near the
+# plaza centre -- decorations off to the side rather than crowding the
+# foot-traffic axis.
+# =============================================================================
+
+# --- Upper grass band (rows 2-10, full width minus the wall) ---
+MeadowFlower     6  3
+MeadowFlowerRed 14  5
+MeadowFlower    22  2
+MeadowFlowerRed 31  4
+MeadowFlower    40  6
+MeadowFlowerRed 48  3
+MeadowFlower    54  5
+
+# --- Lower grass band (rows 26-39, below the street block) ---
+MeadowFlowerRed  8 28
+MeadowFlower    15 31
+MeadowFlowerRed 24 34
+MeadowFlower    33 30
+MeadowFlowerRed 42 36
+MeadowFlower    51 33
+MeadowFlowerRed 56 38
+
+# --- Side flanks of the plaza (cols 5-18 and 53-58, rows 14-22) ---
+MeadowFlower    10 16
+MeadowFlowerRed 16 20
+MeadowFlower    55 17
+MeadowFlowerRed 57 21

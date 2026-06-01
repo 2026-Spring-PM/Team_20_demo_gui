@@ -1,0 +1,25 @@
+# materials.txt -- item definitions (material). 5/30 Phase A: stats moved out of
+# Items.cpp into data. The ItemId enum still exists; section ids match
+# the enum-name tokens (see itemIdFromString). Behaviour stays in code.
+# Fields: name, type, color=R,G,B, price; optional slot, attack, element,
+# defense, durability, melee_style, seed/feed/product (bool).
+
+[ManaCrystal]
+name  = Mana Crystal
+type  = material
+color = 160,200,255
+price = 500
+
+[ManaPrism]
+name  = Mana Prism
+type  = material
+color = 220,180,255
+price = 1000
+
+# 5/29 Pyrothorn add: dungeon-only upgrade material. Drops from dungeon
+# clears and is the upgrade currency for the strongest weapons.
+[ManaCondensate]
+name  = Mana Condensate
+type  = material
+color = 120,245,210
+price = 2000

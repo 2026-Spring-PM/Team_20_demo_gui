@@ -1,0 +1,30 @@
+# =============================================================================
+# town_placements.txt -- free-floating NPCs in the central city scene.
+#
+# Same format as village_placements.txt:
+#   <npc_id>  <col>, <row>
+#
+# Building-attached NPCs (via `npc=<id>` in assets/buildings/town.txt)
+# are NOT listed here.
+#
+# Migrated from the old character markers in assets/maps/town.txt:
+#   B -> bran, X -> iola, G -> marlow, E -> henry, v -> villager
+# =============================================================================
+
+# Merchants and special NPCs
+bran      7, 7
+iola      28, 12
+marlow    28, 22
+cedric    49, 22
+
+# Decorative villagers
+villager  14, 8
+villager  44, 8
+villager  12, 12
+villager  44, 12
+villager  18, 15
+villager  12, 20
+villager  14, 22
+villager  38, 22
+villager  46, 22
+villager  30, 26
