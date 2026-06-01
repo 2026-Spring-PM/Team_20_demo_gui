@@ -1,5 +1,3 @@
-**Due date: 6/1 23:59**
-
 # 🌾 Dragonshire — Farm Village Simulator 🌾
 Programming Methodology Team Project, Spring 2026 — **Team 20**.
 A medieval-fantasy **Farm Village Simulator (PvE)** in **C++17 + SFML**: farm,
